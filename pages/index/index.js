@@ -101,6 +101,14 @@ Page({
 
   onLoad() {
 
+    var localData=wx.getStorageSync('cityName')
+
+    if(localData){
+      console.log('getStorageSync')
+      this.getWeatherData(localData)
+      return
+    }
+
 
     var that = this;
     var myAmapFun = new amapFile.AMapWX({
@@ -113,6 +121,7 @@ Page({
 
         var cityName = data[0]['regeocodeData']['addressComponent']['district']
         console.log(cityName + '-----------')
+        wx.setStorageSync('cityName', cityName)
         that.getWeatherData(cityName)
       },
       fail: function(info) {
