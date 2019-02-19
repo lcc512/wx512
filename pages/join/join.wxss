@@ -1,0 +1,56 @@
+/* pages/join/join.wxss */
+
+
+.hover{
+
+  background-color: gray;
+
+}
+
+.containerWx{
+
+  display: flex;
+
+  height: 700rpx;
+  /* width: 600rpx; */
+
+  flex-direction: column;
+
+  justify-content: space-around;
+
+  /* background-color: gray; */
+}
+
+button{
+  width: 80%;
+  margin: 0 auto;
+}
+
+#test1{
+  
+  /* background-color: red; */
+  padding: 5rpx;
+  border: 1px solid #ccc;
+}
+#test2{
+
+  background-color: yellow;
+  height: 150rpx;
+  padding: 5rpx;
+  border: 1px solid #ccc;
+}
+#test3{
+
+  order: -1;
+  
+  background-color: blue;
+  padding: 5rpx;
+  border: 1px solid #ccc;
+}
+#test4{
+
+  background-color: green;
+  height: 150rpx;
+  padding: 5rpx;
+  border: 1px solid #ccc;
+}

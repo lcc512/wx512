@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view content="main">
+  <!--上面-->
+  <view class="tq-banner">
+
+    <view class="title">
+      <text class="title-name">{{title_name}}</text>
+      <text class="title-temp">{{title_temp}}</text>
+    </view>
+    <view class="location-main">
+      <view class="location">{{location}}</view>
+    </view>
+
+    <view class="wind">{{wind}}</view>
+    <view class="aqi">{{aqi}}</view>
+    <view class="qlty">{{qlty}}</view>
+
+    <view class="updateLoc">{{updateLoc}}</view>
+
+
+  </view>
+  <!--下面列表-->
+  <view class="tq-list">
+
+
+    <view class="dailyWeather">
+      <!-- 开始循环 li -->
+      <view wx:for='{{tq_list}}'>
+        <view class='list-week'>
+          <text>{{days[index]}}</text>
+        </view>
+        <view class='list-temp'>
+          <text space='nbsp' class='nums'>{{item['tmp']['min'] + '~' + item['tmp']['max'] + '°'}}  </text>
+          <text space='nbsp' class="tq_list">{{item['cond']['txt_n']}}  </text>
+          <text space='nbsp' class="{{weatherClassList[item['cond']['txt_n']]}}"></text>
+        </view>
+      </view>
+      <!-- 循环li结束 -->
+    </view>
+  </view>
+</view>
