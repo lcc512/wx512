@@ -3,46 +3,7 @@
 
 /**index.wxss**/
 /* 清除内外边距 */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-p,
-blockquote,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-pre,
-fieldset,
-lengend,
-button,
-input,
-textarea,
-th,
-td {
-  /* table elements 表格元素 */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
-body {
-  /* font-family: "Microsoft YaHei UI Light", sans-serif; */
-  width: 100%;
-  height: 100%;
-}
+
 .main {
   position: fixed;
   left: 0;
@@ -71,30 +32,8 @@ body {
   font-size: 48rpx;
   line-height: 60rpx;
 }
-.tq-banner .location-main .addNewCity-btn {
-  display: inline-block;
-  color: #ffffff;
-  width: 60rpx;
-  height: 60rpx;
-  border: 2rpx solid #ffffff;
-  margin-bottom: 20rpx;
-  border-radius: 50%;
-  vertical-align: middle;
-  line-height: 56rpx;
-}
-.tq-banner .arrow-btn a {
-  color: #ffffff;
-}
-.tq-banner .arrow-btn .arrow-left {
-  position: absolute;
-  left: 0;
-  top: 50%;
-}
-.tq-banner .arrow-btn .arrow-right {
-  position: absolute;
-  right: 0;
-  top: 50%;
-}
+
+
 .tq-banner .title {
   padding-top: 20%;
 }
@@ -117,80 +56,7 @@ body {
   padding-left: 10rpx;
   color:#4BBCFB;
 }
-.tq-banner .detailBtn {
-  z-index: 999;
-  text-align: center;
-}
-.tq-banner .detailBtn a {
-  margin: 0 auto;
-  display: block;
-  text-decoration: none;
-  width: 88rpx;
-  height: 88rpx;
-  border-radius: 100%;
-  border: 2rpx solid #ccc;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  line-height: 88rpx;
-  color: #fff;
-  transition: 0.3s all;
-}
-.tq-banner .detailBtn a.active {
-  background-color: #fff;
-  color: #FD9438;
-}
-.tq-banner .addCity {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 20rpx;
-}
-.tq-banner .addCity a {
-  display: block;
-  text-decoration: none;
-  width: 88rpx;
-  height: 88rpx;
-  border-radius: 100%;
-  border: 2rpx solid #ccc;
-  margin-bottom: 20rpx;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  line-height: 88rpx;
-  color: #fff;
-  transition: 0.3s all;
-}
-.tq-banner .addCity a.active {
-  background-color: #fff;
-  color: #FD9438;
-}
-.tq-banner .addNewCity {
-  width: 460rpx;
-  background-color: #f9f9f9;
-  opacity: 0.8;
-  overflow: auto;
-  /*以下让元素上下左右居中*/
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 999;
-  padding: 20rpx;
-  display: none;
-}
-.tq-banner .addNewCity a {
-  display: inline-block;
-  text-decoration: none;
-  border-bottom: 2rpx solid #FD9438;
-  margin: 0 auto;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  color: #333333;
-  line-height: 72rpx;
-  transition: 0.3s all;
-}
-.tq-banner .addNewCity input {
-  width: 100%;
-  height: 72rpx;
-  margin-bottom: 20rpx;
-  text-indent: 10rpx;
-}
+
 .tq-list {
   width: 100%;
   height: 25%;

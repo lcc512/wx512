@@ -9,7 +9,8 @@ Page({
    */
   data: {
 
-    loading: false
+    loading: false,
+    chunjian:''
   },
 
   test1(event) {
@@ -39,8 +40,42 @@ Page({
 
     })
   },
+
+  // 扫描二维码获取数据
   test2(){
-    wx.showLoading()
+
+    var that=this
+
+    wx.scanCode({
+
+      success: function (res) {
+
+        var num = res.result // 获取到的num就是餐桌的编号
+
+        that.setData({chunlian:num})
+        
+
+      }
+
+    })
+  }
+  ,
+  test3(){
+    wx.chooseImage({
+      success: chooseResult => {
+        // 将图片上传至云存储空间
+        wx.cloud.uploadFile({
+          // 指定上传到的云路径
+          cloudPath: 'my-photo.png',
+          // 指定要上传的文件的小程序临时文件路径
+          filePath: chooseResult.tempFilePaths[0],
+          // 成功回调
+          success: res => {
+            console.log('上传成功', res)
+          },
+        })
+      },
+    })
   }
   ,
   loadFun() {

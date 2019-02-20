@@ -7,6 +7,14 @@
 
 }
 
+.mapView{
+  width: 100%;
+}
+
+.mapView map{
+  width: 100%;
+}
+
 .containerWx{
 
   display: flex;
