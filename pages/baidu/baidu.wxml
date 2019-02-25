@@ -1,0 +1,11 @@
+<!--pages/baidu/baidu.wxml-->
+<view class='container1'>
+
+
+  <image class='user-avatar' src='../../images/touxiang.png'></image>
+  
+  <text class='user-name'>Hello <text style='color:red'>Toney</text></text>
+  <view class='moto' bindtap='test1'>
+    <text >开启全新世界</text>
+  </view>
+</view>

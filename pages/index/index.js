@@ -101,6 +101,14 @@ Page({
 
   onLoad() {
 
+    // 优化下拉背景样式，符合主界面颜色
+    wx.setBackgroundTextStyle({
+      textStyle: 'light' // 下拉背景字体、loading 图的样式为dark
+    })
+    wx.setBackgroundColor({
+      backgroundColor: '#4BBCFB', // 窗口的背景色为白色
+    })
+
     var localData=wx.getStorageSync('cityName')
 
     if(localData){

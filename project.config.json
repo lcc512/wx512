@@ -40,9 +40,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "study",
-					"pathName": "pages/join/join",
+					"pathName": "pages/post/post",
+					"query": "",
 					"scene": null
 				}
 			]

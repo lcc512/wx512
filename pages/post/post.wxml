@@ -1,0 +1,10 @@
+<!--pages/post/post.wxml-->
+<swiper style='width:100%;height:500rpx'>
+  <swiper-item>
+  <image src='../../images/111.jpg' style='width:100%;height:500rpx'></image>
+  </swiper-item>
+  <swiper-item>
+  <image src='../../images/222.jpg' style='width:100%;height:500rpx'></image></swiper-item>
+  <swiper-item>
+  <image src='../../images/333.jpg' style='width:100%;height:500rpx'></image></swiper-item>
+</swiper>

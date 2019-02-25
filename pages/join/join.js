@@ -10,7 +10,10 @@ Page({
   data: {
 
     loading: false,
-    chunjian:''
+    chunjian:'',
+    tapTarFlag:true,
+    jinduNum:0,
+    tuoluo:'0'
   },
 
   test1(event) {
@@ -76,6 +79,35 @@ Page({
         })
       },
     })
+  },
+
+  // 测试API
+  test4(){
+
+    var that=this
+
+    console.log('-=-=-==-')
+
+    
+    
+    // wx.startGyroscope({
+    //   interval:'normal',
+    //   success(res){
+
+    //     that.setData({ tuoluo: 'res' })
+
+    //     wx.onGyroscopeChange(function(res){
+
+
+
+    //       that.setData({tuoluo:res.x})
+
+    //     })
+    //   }
+    // })
+    
+    
+
   }
   ,
   loadFun() {
