@@ -42,7 +42,14 @@
 				{
 					"id": 0,
 					"name": "study",
-					"pathName": "pages/post/post",
+					"pathName": "pages/post/post-detail/post-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/baidu/baidu",
 					"query": "",
 					"scene": null
 				}

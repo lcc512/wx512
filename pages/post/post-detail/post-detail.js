@@ -1,4 +1,4 @@
-// pages/baidu/baidu.js
+// pages/post/post-detail/post-detail.js
 Page({
 
   /**
@@ -7,18 +7,24 @@ Page({
   data: {
 
   },
-  
-  /**
-   * 自定义的函数
-   */
-  test1(){
+
+  playMusic(){
+    console.log('music')
+
+    const backgroundAudioManager = wx.getBackgroundAudioManager()
+
+    backgroundAudioManager.title = '此时此刻'
+    backgroundAudioManager.epname = '此时此刻'
+    backgroundAudioManager.singer = '许巍'
     
-    wx.redirectTo({
-      url: '../../pages/post/post',
-    })
+    backgroundAudioManager.src = '../../../images/music11.mp3'
+
+
+    backgroundAudioManager.play()
+
+
   }
   ,
-  
 
   /**
    * 生命周期函数--监听页面加载

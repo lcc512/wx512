@@ -1,0 +1,18 @@
+<template name='postItem'>
+
+  <view class='post-container'>
+    <view class='article-title'>
+      <image src='../../images/touxiang.png'></image>
+      <text>{{date}}</text>
+    </view>
+    <image src='{{imageUrl}}' class='article-image'></image>
+    <text class='article-content'>{{content}}</text>
+    <view class='article-footer'>
+      <image src='../../images/favor.png'></image>
+      <text>{{favorNum}}</text>
+      <image src='../../images/comment.png'></image>
+      <text>{{commentNum}}</text>
+    </view>
+  </view>
+
+</template>

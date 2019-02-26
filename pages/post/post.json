@@ -1,5 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarBackgroundColor": "#B3D4D8",
-  "navigationBarTitleText": "POST页"
+  "navigationBarTitleText": "POST页",
+  "navigationBarTextStyle": "black"
 }

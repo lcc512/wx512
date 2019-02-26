@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/join/join",
     "pages/baidu/baidu",
-    "pages/post/post"
+    "pages/post/post",
+    "pages/post/post-detail/post-detail"
   ],
   "permission": {
     "scope.userLocation": {
@@ -13,11 +14,8 @@
   }
   ,
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#4BBCFB",
-    "navigationBarTitleText": "天气预报",
-    "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [

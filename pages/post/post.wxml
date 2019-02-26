@@ -1,10 +1,27 @@
 <!--pages/post/post.wxml-->
-<swiper style='width:100%;height:500rpx'>
-  <swiper-item>
-  <image src='../../images/111.jpg' style='width:100%;height:500rpx'></image>
-  </swiper-item>
-  <swiper-item>
-  <image src='../../images/222.jpg' style='width:100%;height:500rpx'></image></swiper-item>
-  <swiper-item>
-  <image src='../../images/333.jpg' style='width:100%;height:500rpx'></image></swiper-item>
-</swiper>
+
+<!-- 导入外部template模板 -->
+<import src='./post-item/post-item-template.wxml' />
+
+<button bindtap='ceshi'>ceshi</button>
+<view>
+  <swiper autoplay='true' circular='true'>
+    <swiper-item>
+      <image src='../../images/111.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../images/222.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../images/333.jpg'></image>
+    </swiper-item>
+  </swiper>
+
+  <block wx:for='{{testData}}' wx:key='{{index}}'>
+    <view catchtap='onPostDetail' data-postid='{{item.postId}}'>
+      <template is='postItem' data='{{...item}}'>
+      </template>
+    </view>
+  </block>
+
+</view>
