@@ -25,7 +25,7 @@
 
     <view class="dailyWeather">
       <!-- 开始循环 li -->
-      <view wx:for='{{tq_list}}'>
+      <view wx:for='{{tq_list}}' wx:key='{{key}}'>
         <view class='list-week'>
           <text>{{days[index]}}</text>
         </view>

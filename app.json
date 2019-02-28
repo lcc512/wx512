@@ -1,38 +1,53 @@
 {
   "pages": [
+    "pages/baidu/baidu",
     "pages/index/index",
     "pages/logs/logs",
     "pages/join/join",
-    "pages/baidu/baidu",
     "pages/post/post",
-    "pages/post/post-detail/post-detail"
+    "pages/post/post-detail/post-detail",
+    "pages/movies/movies",
+    "pages/movies/more-movies/more-movies"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
   ],
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
-  }
-  ,
+  },
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#13227a",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "天气",
+        "iconPath":"images/tab/tianqi.png",
+        "selectedIconPath":"images/tab/tianqi_fill.png"
         
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
-       
+        "pagePath": "pages/post/post",
+        "text": "文章",
+        "iconPath": "images/tab/wenzhang.png",
+        "selectedIconPath": "images/tab/wenzhang_fill.png"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "电影",
+        "iconPath": "images/tab/dianying.png",
+        "selectedIconPath": "images/tab/dianying_fill.png"
       },
       {
         "pagePath": "pages/join/join",
-        "text": "参与"
-       
+        "text": "练习",
+        "iconPath": "images/tab/lianxi.png",
+        "selectedIconPath": "images/tab/lianxi_fill.png"
       }
     ]
   }

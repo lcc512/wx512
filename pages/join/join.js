@@ -108,6 +108,11 @@ Page({
     
     
 
+  },
+  test5(){
+    wx.redirectTo({
+      url: '../baidu/baidu',
+    })
   }
   ,
   loadFun() {

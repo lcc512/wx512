@@ -5,6 +5,7 @@
   <view id='test2' bindtap='test2' data-hi='me'>Click222</view>
   <view id='test3' bindtap='test3' data-hi='me'>Click333333</view>
   <view id='test4' bindtap='test4' data-hi='me'>测试api</view>
+  <view id='test5' bindtap='test5' data-hi='me'>跳转到小程序</view>
   <button class="weui-btn" type="primary">确定</button>
   <button loading='{{loading}}' bindtap='loadFun' disabled='{{loading}}'>载入</button>
   <text>{{chunlian}}</text>

@@ -35,6 +35,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    testA:'this is testA'
+    testA:'this is testA',
+    postId:0,
+    g_doubanBase: 'https://douban.uieee.com'
   }
 })

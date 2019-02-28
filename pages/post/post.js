@@ -2,6 +2,8 @@
 
 //模拟外部获取数据
 var testDataSource=require('./postData.js')
+//获取全局变量
+var app = getApp()
 
 Page({
 
@@ -18,6 +20,8 @@ Page({
 
     console.log(postId)
 
+    // 点击所在的顺序号给全局变量
+    app.postId=postId
 
     wx.navigateTo({
       url: './post-detail/post-detail',

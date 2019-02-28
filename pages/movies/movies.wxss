@@ -1,0 +1,7 @@
+/* pages/movies/movies.wxss */
+@import "./movie-list-template/movie-list-template.wxss";
+
+.movies-main-container{
+  background-color: rgb(233, 233, 233);
+  color:#666;
+}

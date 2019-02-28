@@ -12,9 +12,11 @@ Page({
    * 自定义的函数
    */
   test1(){
+    console.log('baidu---')
     
-    wx.redirectTo({
-      url: '../../pages/post/post',
+    // 要跳转到tabbar的页面必须用这个方法，navi那个不管用
+    wx.switchTab({
+      url: '../index/index',
     })
   }
   ,

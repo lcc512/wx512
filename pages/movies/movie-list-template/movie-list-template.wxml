@@ -1,0 +1,24 @@
+<import src='../movie-template/movie-template.wxml' />
+
+<template name='movieListTemplate'>
+
+  <view class='movie-list-container'>
+
+    <view class='movie-list-header'>
+      <text class='slogan'>{{movieListTitle}}</text>
+      <text class='more' catchtap='toMorePage' data-category='{{movieListTitle}}'>更多>></text>
+    </view>
+
+    <view class='movies-container'>
+      <block wx:for='{{movies}}' wx:key='{{key}}'>
+      <!-- 三个小点展开item的每一项，那么下面的模板插件就不用再写item.属性了 -->
+        <template is='movieTemplate' data='{{...item}}'></template>
+      </block>
+
+    </view>
+  </view>
+
+
+
+
+</template>

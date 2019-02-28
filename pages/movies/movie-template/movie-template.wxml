@@ -1,0 +1,11 @@
+<import src='../stars-template/stars-template.wxml' />
+
+<template name='movieTemplate'>
+<view class='movie-container'>
+  <image class='movie-img' src='{{img}}'></image>
+  <text class='movie-title'>{{title}}</text>
+  <!-- data可以分别传入两个参数 -->
+  <template is='starsTemplate' data='{{rating,starsList}}'></template>
+</view>
+</template>
+

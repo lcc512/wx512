@@ -1,0 +1,17 @@
+<!--pages/movies/movies.wxml-->
+<!--pages/movie/movie.wxml-->
+<!-- 导入外部template模板 -->
+<import src='./movie-list-template/movie-list-template.wxml' />
+
+<view class='movies-main-container'>
+  <view>
+    <template is='movieListTemplate' data='{{...inTheaters}}'></template>
+  </view>
+
+  <view>
+    <template is='movieListTemplate' data='{{...comingSoon}}'></template>
+  </view>
+  <view>
+    <template is='movieListTemplate' data='{{...top250}}'></template>
+  </view>
+</view>

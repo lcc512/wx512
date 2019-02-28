@@ -6,7 +6,7 @@ swiper{
 
   width: 100%;
   height: 450rpx;
-  box-shadow: 1px 1px 1px #666;
+  box-shadow: 1px 1px 1px rgb(163, 163, 163);
 
   
 }

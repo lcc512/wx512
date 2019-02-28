@@ -1,10 +1,10 @@
 <!--pages/post/post-detail/post-detail.wxml-->
 <view class='container1'>
-  <image src='../../../images/play.png' class='play' bindtap='playMusic'></image>
-  <image src='../../../images/111.jpg' class='article-image' ></image>
+  <image src='{{isPlay?"../../../images/pause.png":"../../../images/play.png"}}' class='play' catchtap='playMusic'></image>
+  <image src='{{currentData.imageUrl}}' class='article-image' ></image>
 
   <view class='author'>
-    <image src='../../../images/touxiang.png'></image>
+    <image src='{{currentData.touxiangUrl}}'></image>
     <text class='author-name'>帅气博主</text>
     <text class='author-fabiao'>发表于</text>
     <text class='author-time'>2小时前</text>
@@ -14,17 +14,13 @@
   <view class='tool'>
   <view class='straight'></view>
     <view>
-      <image src='../../../images/favor.png'></image>
-      <image src='../../../images/comment.png'></image>
+      <image bindtap='setFavor' class='{{postFavor[postId]?"favor":""}}' src='../../../images/favor.png'></image>
+      <image bindtap='shareFun' src='../../../images/share.png'></image>
     </view>
 
     
   </view>
 
-  <text class='content'>卢恒宇和李姝洁工作室是国内最卖座的动画工作室，《十万个冷笑话》开启了中国网络动画时代，而《十万个冷笑话》电影版更是取得了1.19亿的票房。但《镇魂街》内容相比《十万个冷笑话》复杂了很多，以之前的团队规模恐怕没有能力把《镇魂街》完美地表现出来。
-
-卢导在接手项目后意识到了这个问题，于是在这一年中，一边制作，一边不断扩充团队，3D部门也在这时组建，片中有一些复杂镜头运动就是通过3D技术进行实现，同理部分远景动作。卢导在采访中说，“有些镜头用二维动画表现会有限制，在适当的环节运用3D做配合是我们今年做出的一个技术尝试，我们未来也希望能做出画质更加精良的影片给观众老爷看，当然也包括3D的动画电影。”
-
-工作室在人员扩充之后，规模已经达到90多人，目前是国内顶级规模的动画公司之一，制作实力早已不可同日而语。卢恒宇和李姝洁工作室花了一整年全力制作的《镇魂街》，可谓蓄力之作。完成《镇魂街》之后，团队将全力投入到《十万个冷笑话》大电影2的制作。</text>
+  <text class='content'>{{currentData.content}}</text>
 
 </view>

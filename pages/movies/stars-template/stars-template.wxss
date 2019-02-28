@@ -1,0 +1,20 @@
+.stars-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.stars-images{
+  display: flex;
+  flex-direction: row;
+  height: 26rpx;
+  margin-right: 18rpx;
+}
+.stars-images image{
+  width: 26rpx;
+  height: 26rpx;
+  padding-left: 3rpx;
+}
+.stars-score{
+  
+}
