@@ -26,7 +26,7 @@ Page({
         'content-type': 'application/xml'
       },
       success(data) {
-        // console.log(res)
+        // console.log(data)
         that.processMovieListData(data['data'])
       }
 
@@ -37,11 +37,16 @@ Page({
   // 处理获得的电影数据
   processMovieListData(data) {
 
+    
+
     var movieList = []
 
     var tempTitle
 
-    for (var i = 0; i < data['count']; i++) {
+    for (var i = 0; i < data['count']-1; i++) {
+
+      // console.log('----------')
+      // console.log(data['subjects'][i]['title'])
 
       var tempTitle = data['subjects'][i]['title']
       var tempStars = data['subjects'][i]['rating']['stars']

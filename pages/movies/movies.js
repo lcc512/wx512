@@ -22,7 +22,7 @@ Page({
     var category=event.currentTarget.dataset.category
     
     // 测试分类（为了不用调用网络）
-    var category = '正在热映'
+    // var category = '正在热映'
 
     wx.navigateTo({
       url: '/pages/movies/more-movies/more-movies?category=' + category,
@@ -104,9 +104,9 @@ Page({
     var top250Url = app.globalData.g_doubanBase + '/v2/movie/top250?start=0&count=3'
 
 
-    // this.getMovieListData(inTheatersUrl, 'inTheaters', '正在热映')
-    // this.getMovieListData(comingSoonUrl, 'comingSoon', '即将上映')
-    // this.getMovieListData(top250Url, 'top250', 'Top250')
+    this.getMovieListData(inTheatersUrl, 'inTheaters', '正在热映')
+    this.getMovieListData(comingSoonUrl, 'comingSoon', '即将上映')
+    this.getMovieListData(top250Url, 'top250', 'Top250')
 
   },
 
