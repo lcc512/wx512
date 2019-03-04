@@ -1,7 +1,36 @@
 /* pages/movies/movies.wxss */
 @import "./movie-list-template/movie-list-template.wxss";
+@import "./movie-grid-template/movie-grid-template.wxss";
 
 .movies-main-container{
   background-color: rgb(233, 233, 233);
   color:#666;
 }
+
+.search{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 80rpx;
+  padding: 0 15px;
+  background-color: #eee;
+  margin-bottom: 20px;
+}
+
+.search input{
+  padding-left: 20px;
+  width: 560rpx;
+}
+.placeholder{
+  font-size: 32rpx;
+}
+
+.search-panel{
+  position: absolute;
+  top: 80rpx;
+}
+
+.iconCancel{
+}
+

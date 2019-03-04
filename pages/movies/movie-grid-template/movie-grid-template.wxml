@@ -1,16 +1,27 @@
-
 <import src='../movie-template/movie-template.wxml' />
+
 
 <template name='movieGridTemplate'>
 
-  <view class='movie-grid-container'>
+  <scroll-view class='movie-grid-scroll' scroll-y='true' scroll-x='false' bindscrolltolower='onScrollLower'>
 
-    <view class='movies-item-container'>
-      <block wx:for='{{moreMovieData}}' wx:key='{{key}}'>
-      <!-- 三个小点展开item的每一项，那么下面的模板插件就不用再写item.属性了 -->
-        <template is='movieTemplate' data='{{...item}}'></template>
+    <view class='movie-grid-container'>
+
+
+      <block wx:for='{{movies}}' wx:key='{{key}}'>
+
+        <view class='movie-grid-single'>
+
+          <!-- 三个小点展开item的每一项，那么下面的模板插件就不用再写item.属性了 -->
+          <template is='movieTemplate' data='{{...item}}'></template>
+        </view>
+
+
+
       </block>
 
     </view>
-  </view>
+
+
+  </scroll-view>
 </template>

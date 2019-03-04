@@ -1,5 +1,6 @@
 // pages/movies/movies.js
 
+var util = require('../../utils/util.js')
 
 var app = getApp()
 
@@ -12,25 +13,72 @@ Page({
 
     inTheaters: {},
     comingSoon: {},
-    top250: {}
+    top250: {},
+    containerShow: true,
+    searchPanelShow: false,
+    searchData: {},
+    inputValue: ''
 
+  },
+
+
+  // 搜索框代码
+  onBindfocus(event) {
+
+    var searchUrl = app.globalData.g_doubanBase + '/v2/movie/search?q=' + event.detail.value
+
+    console.log(searchUrl)
+
+    this.getMovieListData(searchUrl, 'searchData', 'searchData')
+
+    this.setData({
+      containerShow: false,
+      searchPanelShow: true
+    })
+
+  },
+
+  // 取消搜索
+  onCancelSearch() {
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false,
+      inputValue: ''
+    })
   },
 
   // 更多跳转
   toMorePage(event) {
 
-    var category=event.currentTarget.dataset.category
-    
+    var category = event.currentTarget.dataset.category
+
     // 测试分类（为了不用调用网络）
-    // var category = '正在热映'
+    // var category = 'Top250'
 
     wx.navigateTo({
       url: '/pages/movies/more-movies/more-movies?category=' + category,
     })
   },
 
+  // 跳转到电影详情，dataset后面全小写
+  onMovieTap(event) {
+
+    var movieId = event.currentTarget.dataset.movieid
+
+    console.log(movieId)
+
+    wx.navigateTo({
+      url: './movie-detail/movie-detail?movieId=' + movieId,
+    })
+
+  },
+
+
   // 获取电影数据
   getMovieListData(url, movieListKey, movieListTitle) {
+
+    // 加载效果
+    wx.showNavigationBarLoading()
 
     var that = this
 
@@ -50,37 +98,46 @@ Page({
   // 处理获得的电影数据
   processMovieListData(data, movieListKey, movieListTitle) {
 
+    if (data['total'] === 0) {
+      wx.showToast({
+        title: '没有数据',
+        icon: 'clear'
+      })
+
+      // 结束加载动画
+      wx.hideNavigationBarLoading()
+
+      return
+    }
+
     var movieList = []
 
-    var tempTitle
+    var tempTitle = ''
 
-    for (var i = 0; i < data['count']; i++) {
+    // 解决豆瓣count和total不一致的问题
+    var tempNum = data.count > data.total ? data.total : data.count
+
+    // console.log(data)
+
+    for (var i = 0; i < tempNum; i++) {
 
       var tempTitle = data['subjects'][i]['title']
-      var tempStars = data['subjects'][i]['rating']['stars']
-      var tempStarsList=[0,0,0,0,0]
+
 
       // 电影名截短
       if (tempTitle.length >= 6) {
         tempTitle = tempTitle.substring(0, 5) + '...'
       }
 
-      // 星级，一个5个元素的数组，点亮星置为1
-      for(var j=0; j<tempStars/10;j++){
-        tempStarsList[j]=1
-      }
-
       movieList[i] = {
         img: data['subjects'][i]['images']['small'],
         title: tempTitle,
         rating: data['subjects'][i]['rating']['average'],
-        starsList: tempStarsList,
+        starsList: util.convertToStarsArray(data['subjects'][i]['rating']['stars']),
         movieId: data['subjects'][i]['id'],
       }
 
     }
-
-    // console.log(movieList[0].starsList)
 
     var tempDataName = {}
     tempDataName[movieListKey] = {
@@ -88,7 +145,12 @@ Page({
       movieListTitle: movieListTitle
     }
 
+    // 不管何种类型，top250还是search，最终到data那里
     this.setData(tempDataName)
+
+
+    // 结束加载动画
+    wx.hideNavigationBarLoading()
 
 
   },

@@ -42,7 +42,7 @@
 				{
 					"id": 0,
 					"name": "study",
-					"pathName": "pages/movies/movies",
+					"pathName": "pages/movies/movie-detail/movie-detail",
 					"query": "",
 					"scene": null
 				},

@@ -2,8 +2,20 @@
 <!--pages/movie/movie.wxml-->
 <!-- 导入外部template模板 -->
 <import src='./movie-list-template/movie-list-template.wxml' />
+<import src='./movie-grid-template/movie-grid-template.wxml' />
 
-<view class='movies-main-container'>
+
+<view class='search'>
+  <icon type='search' size='36rpx'></icon>
+  <input bindblur='onBindfocus' placeholder='流浪地球' placeholder-class='placeholder' value='{{inputValue}}'/>
+  <icon class='iconCancel' type='clear' size='42rpx' bindtap='onCancelSearch'></icon>
+</view>
+
+
+
+<view class='movies-main-container' wx:if='{{containerShow}}'>
+
+
   <view>
     <template is='movieListTemplate' data='{{...inTheaters}}'></template>
   </view>
@@ -14,4 +26,9 @@
   <view>
     <template is='movieListTemplate' data='{{...top250}}'></template>
   </view>
+</view>
+
+<!-- 搜索出来的浮动页面 -->
+<view class='search-panel' wx:if='{{searchPanelShow}}'>
+  <template is='movieGridTemplate' data='{{...searchData}}'></template>
 </view>

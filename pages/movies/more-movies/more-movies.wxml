@@ -4,7 +4,7 @@
 
 <view class='move-movies-container'>
 
-<template is='movieGridTemplate' data='{{moreMovieData}}'>
+<template is='movieGridTemplate' data='{{movies}}'>
 
 </template>
 </view>

@@ -1,5 +1,6 @@
 // pages/movies/more-movies/more-movies.js
 
+var util = require('../../../utils/util.js')
 var app = getApp()
 
 Page({
@@ -10,23 +11,47 @@ Page({
   data: {
 
     navigateTitle: '',
-    moreMovieData:''
+    movies: [],
+    startNum: 0,
+    dataUrl: '',
+
+  },
+
+  // 跳转到电影详情，dataset后面全小写
+  onMovieTap(event) {
+
+    var movieId = event.currentTarget.dataset.movieid
+
+    console.log(movieId)
+
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?movieId=' + movieId,
+    })
 
   },
 
 
-  // 获取电影数据
-  getMovieListData(url) {
+  onScrollLower() {
 
-    var that = this
+    this.getMovieListData(this.data.startNum, 7)
+  },
+
+  // 获取电影数据
+  getMovieListData(start, count) {
+
+    // 加载效果
+    wx.showNavigationBarLoading()
+
+    var that=this
+    var urlTemp = this.data.dataUrl
 
     wx.request({
-      url: url,
+      url: urlTemp + '?start=' + start + '&count=' + count,
       header: {
         'content-type': 'application/xml'
       },
       success(data) {
-        // console.log(data)
+
         that.processMovieListData(data['data'])
       }
 
@@ -37,47 +62,36 @@ Page({
   // 处理获得的电影数据
   processMovieListData(data) {
 
-    
+    var movieList = this.data.movies
 
-    var movieList = []
-
-    var tempTitle
-
-    for (var i = 0; i < data['count']-1; i++) {
-
-      // console.log('----------')
-      // console.log(data['subjects'][i]['title'])
+    for (var i = 0; i < data['subjects'].length; i++) {
 
       var tempTitle = data['subjects'][i]['title']
-      var tempStars = data['subjects'][i]['rating']['stars']
-      var tempStarsList = [0, 0, 0, 0, 0]
 
       // 电影名截短
       if (tempTitle.length >= 6) {
         tempTitle = tempTitle.substring(0, 5) + '...'
       }
 
-      // 星级，一个5个元素的数组，点亮星置为1
-      for (var j = 0; j < tempStars / 10; j++) {
-        tempStarsList[j] = 1
-      }
-
-      movieList[i] = {
+      movieList.push({
         img: data['subjects'][i]['images']['small'],
         title: tempTitle,
         rating: data['subjects'][i]['rating']['average'],
-        starsList: tempStarsList,
+        starsList: util.convertToStarsArray(data['subjects'][i]['rating']['stars']),
         movieId: data['subjects'][i]['id'],
-      }
+      })
 
     }
 
+  
+
     this.setData({
-      moreMovieData: movieList
+      movies: movieList,
+      startNum: movieList.length
     })
 
-    console.log(this.data.moreMovieData)
-
+    // 隐藏加载动画
+    wx.hideNavigationBarLoading()
 
   },
 
@@ -88,27 +102,29 @@ Page({
 
     var category = options.category
 
-    console.log(category)
-
     this.setData({
       navigateTitle: category
     })
 
-    var dataUrl = ''
+    var dataUrlTemp = ''
 
     switch (category) {
       case '正在热映':
-        dataUrl = app.globalData.g_doubanBase + '/v2/movie/in_theaters'
+        dataUrlTemp = app.globalData.g_doubanBase + '/v2/movie/in_theaters'
         break;
       case '即将上映':
-        dataUrl = app.globalData.g_doubanBase + '/v2/movie/coming_soon'
+        dataUrlTemp = app.globalData.g_doubanBase + '/v2/movie/coming_soon'
         break;
       case 'Top250':
-        dataUrl = app.globalData.g_doubanBase + '/v2/movie/top250'
+        dataUrlTemp = app.globalData.g_doubanBase + '/v2/movie/top250'
         break;
     }
 
-    this.getMovieListData(dataUrl)
+    this.setData({
+      dataUrl: dataUrlTemp
+    })
+
+    this.getMovieListData(0, 7)
 
   },
 
